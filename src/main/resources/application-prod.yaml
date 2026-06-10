@@ -1,0 +1,64 @@
+spring:
+  datasource:
+    url: jdbc:sqlserver://${SISINTEGRADO_DEV_DB_SERVER:192.168.4.40}:${SISINTEGRADO_DEV_DB_PORT:1433};databaseName=${SISINTEGRADO_DEV_DB_NAME:DB_SBN_SISINTEGRADO};encrypt=false;trustServerCertificate=true;loginTimeout=30;socketTimeout=30
+    username: ${SISINTEGRADO_DEV_DB_USERNAME:userProdAppOperador}
+    password: ${SISINTEGRADO_DEV_DB_PASSWORD:1234@ABCD}
+    driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
+  jpa:
+    hibernate:
+      ddl-auto: ${DDL_AUTO:none}
+    show-sql: ${SHOW_SQL:true}
+    properties:
+      hibernate:
+        format_sql: ${FORMAT_SQL:true}
+        dialect: org.hibernate.dialect.SQLServerDialect
+
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: abastecimiento_buzon03@sbn.gob.pe
+    password: cclaocuwxhizqvce
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+            required: true
+          connectiontimeout: 5000
+          timeout: 5000
+          writetimeout: 5000
+
+log:
+  message:
+    visible: ${LOG_MESSAGE_VISIBLE:true}
+
+allowed:
+  origin: ${ALLOWED_ORIGINS_MPP:http://192.168.5.98:8086,https://registro-casilla.sbn.gob.pe,http://localhost:4200}
+
+management:
+  server:
+    port: 9090
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics
+  endpoint:
+    health:
+      show-details: never
+
+  health:
+    probes:
+      enabled: true
+
+info:
+  app:
+    name: Microservicio de Arquitectura Hexagonal
+    version: 1.0.0
+    description: Microservicio de Arquitectura Hexagonal para gestión de productos y clientes
+
+logging:
+  level:
+    root: INFO
+
+

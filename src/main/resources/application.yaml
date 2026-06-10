@@ -1,0 +1,55 @@
+server:
+  port: 8188
+  servlet:
+    context-path: /api/arquitectura-hexagonal-ms
+spring:
+  application:
+    name: ArquitecturaHexagonal
+    hibernate:
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: abastecimiento_buzon03@sbn.gob.pe
+    password: cclaocuwxhizqvce
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: https://issuer.example.com
+
+  profiles:
+    active: ${DEPLOY:dev}
+
+  devtools:
+    restart:
+      enabled: true
+    livereload:
+      enabled: true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: always
+
+info:
+  app:
+    name: Microservicio de Arquitectura Hexagonal
+    version: 1.0.0
+    description: Microservicio de Arquitectura Hexagonal para gestión de productos y clientes
+
+logging:
+  level:
+    root: INFO
