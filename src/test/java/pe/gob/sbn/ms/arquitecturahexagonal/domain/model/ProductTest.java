@@ -117,7 +117,7 @@ public class ProductTest {
             IllegalArgumentException exceptionNegative = assertThrows(IllegalArgumentException.class, () -> {
                 product.increaseStock(-5);
             });
-            assertEquals("Quantity must be greater than zero", exceptionNegative.getMessage());
+            assertEquals("Quantity must be greater than zero 1", exceptionNegative.getMessage());
         }
 
         @Test
