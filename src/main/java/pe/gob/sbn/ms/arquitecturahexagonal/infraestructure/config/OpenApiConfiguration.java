@@ -18,7 +18,7 @@ public class OpenApiConfiguration {
 
                 .info(
                         new Info()
-                                .title("Product Management APIss")
+                                .title("Product Management APIss2")
                                 .description(
                                         "Enterprise Product Management System"
                                 )
